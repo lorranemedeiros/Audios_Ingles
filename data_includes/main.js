@@ -95,9 +95,9 @@ newTrial("instr.treino",
         .log()
         .wait()
 )
-Template("treino.csv",row=>
+Template("treino.csv",variable=>
     newTrial("contexto.treino",
-        newAudio("contexto.treino",row.ContextoTreino)
+        newAudio("contexto.treino",variable.ContextoTreino)
              .play()
         ,
         newImage("altofalante.png")
@@ -114,9 +114,9 @@ Template("treino.csv",row=>
     )
     )
     
-Template("treino.csv",row=>
+Template("treino.csv",variable=>
 newTrial("frase.treino",
-        newAudio("frase.treino", row.SentenceTreino)
+        newAudio("frase.treino", variable.SentenceTreino)
              .play()
         ,
         newImage("altofalante.png")
@@ -199,9 +199,9 @@ newTrial("instr.exp",
         .log()
         .wait()
     )
-Template("tabela.csv", row=>    
+Template("tabela.csv", variable=>    
     newTrial("contexto.exp",
-        newAudio("contexto.exp", row.AudioContext)
+        newAudio("contexto.exp", variable.AudioContext)
              .play()
         ,
         newImage("altofalante.png")
@@ -217,9 +217,9 @@ Template("tabela.csv", row=>
             .remove()
     )
     )
-Template("tabela.csv", row=>
+Template("tabela.csv", variable=>
 newTrial("frase.experimento",
-        newAudio("frase.experimento", row.AudioSentence)
+        newAudio("frase.experimento", variable.AudioSentence)
              .play()
         ,
         newImage("altofalante.png")
