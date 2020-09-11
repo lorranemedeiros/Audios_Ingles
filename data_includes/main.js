@@ -1,8 +1,7 @@
 PennController.ResetPrefix(null);
 PennController.DebugOff();
 
-//Nova tela - Tela inicial do participante
-newTrial("welcome",
+newTrial("inicial",
 //Define que todo o texto ser� impresso na tela e que o tamanho da fonte ser� "1.2em"
     defaultText
         .css("font-size","1.2em")
@@ -69,9 +68,9 @@ newTrial("welcome",
 .log( "ID" , getVar("ID") )
 .log( "EMAIL" , getVar("EMAIL") )
 .log( "AGE" , getVar("AGE") )
- ,
+ 
 //Nova tela - Tela de instru��es do treino
-newTrial("tela2",
+newTrial("instr.treino",
     defaultText
         .css("font-size","1.2em")
         .print()
@@ -95,10 +94,10 @@ newTrial("tela2",
         .center()
         .log()
         .wait()
-);
-
-    newTrial(
-        newAudio("ContDIST1.wav")
+)
+Template("treino.csv",row=>
+    newTrial("contexto.treino",
+        newAudio("contexto.treino",row.ContextoTreino)
              .play()
         ,
         newImage("altofalante.png")
@@ -112,9 +111,12 @@ newTrial("tela2",
             .log()
             .wait()
             .remove()
-                );
-newTrial(
-        newAudio("DIST1.wav")
+    )
+    )
+    
+Template("treino.csv",row=>
+newTrial("frase.treino",
+        newAudio("frase.treino", row.SentenceTreino)
              .play()
         ,
         newImage("altofalante.png")
@@ -130,8 +132,10 @@ newTrial(
             .wait()
             .remove()
         
-        );
-newTrial(
+        )
+        )
+        
+newTrial("escala",
         newImage("escala.png")
         .print()
         .center()
@@ -175,10 +179,9 @@ newCanvas( 1400 , 700 )
     .log("Condition", variable.Condition)
     .log("Group", variable.Group) 
     .log("Type", variable.Type)
-;
 
 //Nova Tela - Tela de instruções do experimento
-newTrial("tela3", 
+newTrial("instr.exp",
     defaultText
         .css("font-size","1.2em")
         .print()
@@ -195,9 +198,10 @@ newTrial("tela3",
         .center()
         .log()
         .wait()
-    );
- newTrial(
-        newAudio("contexto1.wav")
+    )
+Template("tabela.csv", row=>    
+    newTrial("contexto.exp",
+        newAudio("contexto.exp", row.AudioContext)
              .play()
         ,
         newImage("altofalante.png")
@@ -211,9 +215,11 @@ newTrial("tela3",
             .log()
             .wait()
             .remove()
-                );
-newTrial(
-        newAudio("Exp1-CONDA.wav")
+    )
+    )
+Template("tabela.csv", row=>
+newTrial("frase.experimento",
+        newAudio("frase.experimento", row.AudioSentence)
              .play()
         ,
         newImage("altofalante.png")
@@ -229,8 +235,10 @@ newTrial(
             .wait()
             .remove()
         
-        );
-newTrial(
+        )
+        )
+        
+newTrial("escala.exp",
         newImage("escala.png")
         .print()
         .center()
@@ -274,9 +282,9 @@ newCanvas( 1400 , 700 )
     .log("Condition", variable.Condition)
     .log("Group", variable.Group) 
     .log("Type", variable.Type)
-;
-      //Nova Tela - Tela final    
-newTrial( "final" ,
+    
+//Nova Tela - Tela final    
+newTrial("final",
     newText("<p> O experimento foi conclu&iacute;do. Obrigada pela participa&ccedil;&atilde;o!</p>")
         .css("font-size","1.2em")
         .print()
@@ -286,9 +294,3 @@ newTrial( "final" ,
         .print()
         .wait()
  )
-
-//Ajeita a barra de pogresso para que ela fique completa
-.setOption("countsForProgressBar",false);
-//Fim do Script
-
-      
