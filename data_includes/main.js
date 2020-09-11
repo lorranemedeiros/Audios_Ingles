@@ -1,14 +1,16 @@
 PennController.ResetPrefix(null);
 PennController.DebugOff();
+
+//Nova tela - Tela inicial do participante
 newTrial("welcome",
-//Define que todo o texto será impresso na tela e que o tamanho da fonte será "1.2em"
+//Define que todo o texto ser� impresso na tela e que o tamanho da fonte ser� "1.2em"
     defaultText
         .css("font-size","1.2em")
         .print()
     ,
     newText("<p>Bem-vindos!</p>")
     ,
-    newText("<p>Neste experimento, você vai ouvir uma frase e depois deve escolher a melhor op&ccedil;&atilde;o de interpreta&ccedil;&atilde;o para ela.</p>")
+    newText("<p>Neste experimento, voc� vai ouvir uma frase e depois deve escolher a melhor op&ccedil;&atilde;o de interpreta&ccedil;&atilde;o para ela.</p>")
     ,
     newText("<p>Por favor, escreva seu NOME COMPLETO na caixa abaixo.</p>")
     ,
@@ -40,15 +42,15 @@ newTrial("welcome",
         .add("M&eacute;dio completo", "Superior em curso", "Superior completo", "P&oacute;s-gradua&ccedil;&atilde;o")
         .css("font-size","1.2em")
         .print()
-        .log() //Envia para o arquivo "results" a opção selecionada pelo participante 
+        .log() //Envia para o arquivo "results" a op��o selecionada pelo participante 
     ,
-//Cria um novo botão nomeado "Iniciar"
+//Cria um novo bot�o nomeado "Iniciar"
     newButton("Iniciar")
         .css("font-size","1.2em")
         .print()
         .wait()
     ,
-//Cria uma nova variável chamada "ID" que recebe o conteúdo da caixa de texto "Nome"
+//Cria uma nova vari�vel chamada "ID" que recebe o conte�do da caixa de texto "Nome"
     newVar("ID")
         .global()
         .set( getTextInput("Nome") )
@@ -63,12 +65,12 @@ newTrial("welcome",
     
 )
 
-//Envia para o arquivo "results" o conteúdo da variável "ID"
+//Envia para o arquivo "results" o conte�do da vari�vel "ID"
 .log( "ID" , getVar("ID") )
 .log( "EMAIL" , getVar("EMAIL") )
 .log( "AGE" , getVar("AGE") )
- 
-//Nova tela - Tela de instruções do treino
+ ,
+//Nova tela - Tela de instru��es do treino
 newTrial("tela2",
     defaultText
         .css("font-size","1.2em")
@@ -86,7 +88,7 @@ newTrial("tela2",
     ,
     newText("<p>Aperte &quot;Iniciar&quot; para come&ccedil;ar.</p>")
     ,
-    //Cria um novo botão nomeado "Iniciar" e envia para o arquivo "results" a informação de quando ele é pressionado
+    //Cria um novo bot�o nomeado "Iniciar" e envia para o arquivo "results" a informa��o de quando ele � pressionado
     newButton("Iniciar")
         .css("font-size","1.2em")
         .print()
@@ -96,6 +98,105 @@ newTrial("tela2",
 );
 
     newTrial(
+        newAudio("ContDIST1.wav")
+             .play()
+        ,
+        newImage("altofalante.png")
+            .size( 90 , 90 )
+            .print()
+       ,
+        newButton("Next")
+            .css("font-size","1.2em")
+            .print()
+            .center()
+            .log()
+            .wait()
+            .remove()
+                );
+newTrial(
+        newAudio("DIST1.wav")
+             .play()
+        ,
+        newImage("altofalante.png")
+            .size( 90 , 90 )
+            .print()
+       
+        ,
+        newButton("Next")
+            .css("font-size","1.2em")
+            .print()
+            .center()
+            .log()
+            .wait()
+            .remove()
+        
+        );
+newTrial(
+        newImage("escala.png")
+        .print()
+        .center()
+        
+    ,
+    newText("Strongly Unacceptable")
+    .css("font-size","1.4em")
+        
+    ,
+    newText("Unacceptable")
+    .css("font-size","1.4em")
+        
+,
+   newText("Neutral")
+        .css("font-size","1.4em")
+,
+    newText("Acceptable")
+    .css("font-size","1.4em")
+        
+,
+     newText("Strongly Acceptable")
+     .css("font-size","1.4em")
+        
+
+,
+newCanvas( 1400 , 700 )
+            .add(   250 , 0 , getText("Strongly Unacceptable") )
+            .add( 500 , 0 , getText("Unacceptable") )
+            .add(   680 , 0 , getText("Neutral") )
+            .add( 830 , 0 , getText("Acceptable") )
+            .add(   990 , 0 , getText("Strongly Acceptable") )
+            .print()
+            ,
+        newSelector()
+            .add( getText("Strongly Unacceptable") , getText("Unacceptable"), getText("Neutral"), getText("Acceptable"), getText("Strongly Acceptable") )
+            .keys("1","2","3","4","5")
+            .log()
+            .wait()
+)
+    .log("Item", variable.Item)
+    .log("Condition", variable.Condition)
+    .log("Group", variable.Group) 
+    .log("Type", variable.Type)
+;
+
+//Nova Tela - Tela de instruções do experimento
+newTrial("tela3", 
+    defaultText
+        .css("font-size","1.2em")
+        .print()
+    ,
+    newText("<p>Agora que voc&ecirc j&aacute; praticou, vamos iniciar o experimento!</p>")
+    ,
+    newText("<p>A tarefa irá durar em torno de 10 minutos, certifique-se de que você está em um lugar tranquilo e silencioso para que não haja interrupções.</p>")
+    ,
+    newText("<p>Clique em &quot;Iniciar&quot; quando estiver pronto para come&ccedil;ar.</p>")
+    ,
+    newButton("Iniciar")
+        .css("font-size","1.2em")
+        .print()
+        .center()
+        .log()
+        .wait()
+    );
+ newTrial(
         newAudio("contexto1.wav")
              .play()
         ,
@@ -174,3 +275,20 @@ newCanvas( 1400 , 700 )
     .log("Group", variable.Group) 
     .log("Type", variable.Type)
 ;
+      //Nova Tela - Tela final    
+newTrial( "final" ,
+    newText("<p> O experimento foi conclu&iacute;do. Obrigada pela participa&ccedil;&atilde;o!</p>")
+        .css("font-size","1.2em")
+        .print()
+    ,
+    newText("<p> Voc&ecirc; receber&aacute; um e-mail com a sua declara&ccedil;&atilde;o de participa&ccedil;&atilde;o.</p>")
+        .css("font-size","1.2em")
+        .print()
+        .wait()
+ )
+
+//Ajeita a barra de pogresso para que ela fique completa
+.setOption("countsForProgressBar",false);
+//Fim do Script
+
+      
