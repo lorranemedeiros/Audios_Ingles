@@ -38,7 +38,7 @@ newTrial("inicial",
         .print()
     ,
 //Cria uma caixa com seletores nomeada "Escolaridade" para que o participante selecione sua escolaridade
-    newDropDown("Escolaridade", "Selecione sua escolaridade")
+    newDropDown("Escolaridade", "Select your educational level")
         .add("Undergraduate", "Graduate")
         .css("font-size","1.2em")
         .print()
@@ -91,7 +91,7 @@ newTrial("instr.treino",
     ,
     newText("<p>So, you’ll click on the best option for you! (If you are using a laptop or a desktop, you can press the buttons 1 to 5 to choose the best option)</p>")
     ,
-    newText("<p>If possible, use headphones to perform the experiment.</p>")
+    newText("<p>If possible, wear headphones to perform the experiment.</p>")
     ,
     newText("<p>Press “START” to go to the practice.</p>")
     ,
