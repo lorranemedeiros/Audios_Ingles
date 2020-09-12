@@ -119,13 +119,15 @@ Template("treino.csv",variable=>
             .log()
             .wait()
             .remove()
-    ,
-          getImage("altofalante.png")
-            .remove()
+    
       ,
              getAudio("contexto.treino",variable.ContextoTreino)
              .wait("first")
+             
              ,
+          getImage("altofalante.png")
+            .remove()
+            ,
             newAudio("frase.treino", variable.SentenceTreino)
              .play()
         ,
@@ -141,14 +143,16 @@ Template("treino.csv",variable=>
             .log()
             .wait()
             .remove()
-            ,
-            getImage("altofalante2.png")
-            .remove()
+            
         
     ,
              getAudio("frase.treino",variable.SentenceTreino)
              .wait("first")
              ,
+             
+            getImage("altofalante2.png")
+            .remove()
+            ,
         newImage("escala.png")
         .print()
         .center()
@@ -230,12 +234,12 @@ Template("tabela.csv", variable=>
             .remove()
                 ,
 
-getImage("altofalante.png")
-            .remove()
-            ,
              getAudio("contexto.exp",variable.AudioContext)
              .wait("first")
              ,
+             getImage("altofalante.png")
+            .remove()
+            ,
         newAudio("frase.experimento", variable.AudioSentence)
              .play()
         ,
@@ -252,12 +256,13 @@ getImage("altofalante.png")
             .log()
             .wait()
             .remove()
-            ,
-            getImage("altofalante2.png")
-            .remove()
+            
         ,
         getAudio("frase.experimento",variable.AudioSentence)
              .wait("first")
+             ,
+            getImage("altofalante2.png")
+            .remove()
              ,
         newImage("escala.png")
         .print()
