@@ -256,7 +256,7 @@ getImage("altofalante.png")
             getImage("altofalante2.png")
             .remove()
         ,
-        getAudio("contexto.exp",variable.AudioContext)
+        getAudio("frase.experimento",variable.AudioSentence)
              .wait("first")
              ,
         newImage("escala.png")
