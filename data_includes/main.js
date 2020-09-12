@@ -1,6 +1,7 @@
 PennController.ResetPrefix(null);
-PennController.DebugOff();
-
+PennController.Debug();
+//Sequência de telas do experimento
+Sequence ("inicial", "instr.treino", ("treino"), "instr.exp" , randomize("experimento"), SendResults(), "final");
 newTrial("inicial",
 //Define que todo o texto ser� impresso na tela e que o tamanho da fonte ser� "1.2em"
     defaultText
@@ -96,7 +97,7 @@ newTrial("instr.treino",
         .wait()
 )
 Template("treino.csv",variable=>
-    newTrial("contexto.treino",
+    newTrial("treino",
         newAudio("contexto.treino",variable.ContextoTreino)
              .play()
         ,
@@ -111,18 +112,17 @@ Template("treino.csv",variable=>
             .log()
             .wait()
             .remove()
-    )
-    )
-    
-Template("treino.csv",variable=>
-newTrial("frase.treino",
-        newAudio("frase.treino", variable.SentenceTreino)
+    ,
+          getImage("altofalante.png")
+            .remove()
+            ,
+            newAudio("frase.treino", variable.SentenceTreino)
              .play()
         ,
-        newImage("altofalante.png")
+        newImage("altofalante2.png")
             .size( 90 , 90 )
             .print()
-       
+            
         ,
         newButton("Next")
             .css("font-size","1.2em")
@@ -131,11 +131,11 @@ newTrial("frase.treino",
             .log()
             .wait()
             .remove()
+            ,
+            getImage("altofalante2.png")
+            .remove()
         
-        )
-        )
-        
-newTrial("escala",
+    ,
         newImage("escala.png")
         .print()
         .center()
@@ -175,11 +175,11 @@ newCanvas( 1400 , 700 )
             .log()
             .wait()
 )
-    .log("Item", variable.Item)
+
     .log("Condition", variable.Condition)
     .log("Group", variable.Group) 
     .log("Type", variable.Type)
-
+)
 //Nova Tela - Tela de instruções do experimento
 newTrial("instr.exp",
     defaultText
@@ -200,7 +200,7 @@ newTrial("instr.exp",
         .wait()
     )
 Template("tabela.csv", variable=>    
-    newTrial("contexto.exp",
+    newTrial("experimento",
         newAudio("contexto.exp", variable.AudioContext)
              .play()
         ,
@@ -215,17 +215,19 @@ Template("tabela.csv", variable=>
             .log()
             .wait()
             .remove()
-    )
-    )
-Template("tabela.csv", variable=>
-newTrial("frase.experimento",
+                ,
+
+getImage("altofalante.png")
+            .remove()
+            ,
         newAudio("frase.experimento", variable.AudioSentence)
              .play()
         ,
-        newImage("altofalante.png")
+        newImage("altofalante2.png")
             .size( 90 , 90 )
             .print()
-       
+            
+           
         ,
         newButton("Next")
             .css("font-size","1.2em")
@@ -234,11 +236,11 @@ newTrial("frase.experimento",
             .log()
             .wait()
             .remove()
+            ,
+            getImage("altofalante2.png")
+            .remove()
+        ,
         
-        )
-        )
-        
-newTrial("escala.exp",
         newImage("escala.png")
         .print()
         .center()
@@ -278,10 +280,12 @@ newCanvas( 1400 , 700 )
             .log()
             .wait()
 )
+
     .log("Item", variable.Item)
     .log("Condition", variable.Condition)
     .log("Group", variable.Group) 
     .log("Type", variable.Type)
+    )
     
 //Nova Tela - Tela final    
 newTrial("final",
