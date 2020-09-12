@@ -1,5 +1,5 @@
 PennController.ResetPrefix(null);
-PennController.Debug();
+PennController.DebugOff();
 //Sequência de telas do experimento
 Sequence ("inicial", "instr.treino", ("treino"), "instr.exp" , randomize("experimento"), SendResults(), "final");
 newTrial("inicial",
@@ -8,24 +8,24 @@ newTrial("inicial",
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p>Bem-vindos!</p>")
+    newText("<p>Welcome!</p>")
     ,
-    newText("<p>Neste experimento, voc� vai ouvir uma frase e depois deve escolher a melhor op&ccedil;&atilde;o de interpreta&ccedil;&atilde;o para ela.</p>")
+    newText("<p>In this experiment you’ll hear some sentences and then you’ll judge how good/acceptable sound those sentences using a 5-points scale.</p>")
     ,
-    newText("<p>Por favor, escreva seu NOME COMPLETO na caixa abaixo.</p>")
+    newText("<p>Please, fill in your FULL NAME in the box below:</p>")
     ,
 //Cria uma caixa de texto nomedada "Nome" para receber o nome do participante
     newTextInput("Nome")
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p>Por favor, escreva seu E-MAIL na caixa abaixo.</p>")
+    newText("<p>Please, fill in your E-MAIL address in the box below:</p>")
     ,
     newTextInput("Email")
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p>Escreva sua IDADE na caixa abaixo.</p>")
+    newText("<p>Fill in your AGE in the box below:</p>")
         .css("font-size","1.2em")
         .print()
     ,
@@ -33,19 +33,19 @@ newTrial("inicial",
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p>Agora selecione sua ESCOLARIDADE na caixa abaixo e aperte &quot;Iniciar&quot; para come&ccedil;ar!</p>")
+    newText("<p>Now, select your EDUCATIONAL LEVEL in the box below and press “Start”</p>")
         .css("font-size","1.2em")
         .print()
     ,
 //Cria uma caixa com seletores nomeada "Escolaridade" para que o participante selecione sua escolaridade
     newDropDown("Escolaridade", "Selecione sua escolaridade")
-        .add("M&eacute;dio completo", "Superior em curso", "Superior completo", "P&oacute;s-gradua&ccedil;&atilde;o")
+        .add("Undergraduate", "Graduate")
         .css("font-size","1.2em")
         .print()
         .log() //Envia para o arquivo "results" a op��o selecionada pelo participante 
     ,
 //Cria um novo bot�o nomeado "Iniciar"
-    newButton("Iniciar")
+    newButton("Start")
         .css("font-size","1.2em")
         .print()
         .wait()
@@ -76,20 +76,27 @@ newTrial("instr.treino",
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p>Vamos realizar um pequeno treino para voc&ecirc; se familiarizar com o experimento.</p>")
+    newText("<p>Let’s practice a little bit before you start the test!</p>")
     ,
-    newText("<p>INSTRU&Ccedil;&Otilde;ES:</p>")
+    newText("<p>Instructions:</p>")
     ,
-    newText("<p>Ou&ccedil;a a frase com aten&ccedil;&atilde;o e depois clique no bot&atilde;o &quot;Pr&oacute;ximo&quot; para ver as duas op&ccedil;&otilde;es de interpreta&ccedil;&atilde;o: <strong>A</strong> e <strong>B</strong>.</p>")
+    newText("<p>Step 1: You’ll listen to a sentence. This is the context sentence. As soon as the audio ends, click on the button NEXT.</p>")
     ,
-    newText("<p>Clique em cima da op&ccedil;&atilde;o que voc&ecirc; acha que &eacute; a melhor, de acordo com a frase que voc&ecirc; ouviu.</p>")
+    newText("<p>Step 2: You’ll listen to a second sentence. This sentence is related to the context sentence (previous audio). After listening to this sentence, click on the button NEXT to judge this sentence according to a 5-points scale. PAY ATTENTION!! You have to judge the second audio, not the first one.</p>")
     ,
-    newText("<p>Se poss&iacute;vel, utilize fones de ouvido para realizar o experimento.</p>")
+    newText("<p>Step 3: You’ll see a five-point scale and now you’ll choose the best option according to what  you think about the sentence that you just heard:</p>")
     ,
-    newText("<p>Aperte &quot;Iniciar&quot; para come&ccedil;ar.</p>")
+    newImage("escala.instructions.png")
+    .print()
+    ,
+    newText("<p>So, you’ll click on the best option for you! (If you are using a laptop or a desktop, you can press the buttons 1 to 5 to choose the best option)</p>")
+    ,
+    newText("<p>If possible, use headphones to perform the experiment.</p>")
+    ,
+    newText("<p>Press “START” to start the practice.</p>")
     ,
     //Cria um novo bot�o nomeado "Iniciar" e envia para o arquivo "results" a informa��o de quando ele � pressionado
-    newButton("Iniciar")
+    newButton("START")
         .css("font-size","1.2em")
         .print()
         .center()
@@ -186,13 +193,13 @@ newTrial("instr.exp",
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p>Agora que voc&ecirc j&aacute; praticou, vamos iniciar o experimento!</p>")
+    newText("<p>Now that you've practiced, let's start the experiment!</p>")
     ,
-    newText("<p>A tarefa irá durar em torno de 10 minutos, certifique-se de que você está em um lugar tranquilo e silencioso para que não haja interrupções.</p>")
+    newText("<p>The task will take around 15 minutes, make sure you are in a quiet place so that there are no interruptions.</p>")
     ,
-    newText("<p>Clique em &quot;Iniciar&quot; quando estiver pronto para come&ccedil;ar.</p>")
+    newText("<p>Click START when you are ready to start the experiment.</p>")
     ,
-    newButton("Iniciar")
+    newButton("START")
         .css("font-size","1.2em")
         .print()
         .center()
@@ -289,12 +296,15 @@ newCanvas( 1400 , 700 )
     
 //Nova Tela - Tela final    
 newTrial("final",
-    newText("<p> O experimento foi conclu&iacute;do. Obrigada pela participa&ccedil;&atilde;o!</p>")
+    newText("<p> The experiment was concluded! Thanks for participating!</p>")
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p> Voc&ecirc; receber&aacute; um e-mail com a sua declara&ccedil;&atilde;o de participa&ccedil;&atilde;o.</p>")
+    newText("<p> You'll will receive your certificate of participation by e-mail </p>")
         .css("font-size","1.2em")
         .print()
         .wait()
  )
+//Ajeita a barra de pogresso para que ela fique completa
+.setOption("countsForProgressBar",false);
+//Fim do Script
