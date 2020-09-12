@@ -124,7 +124,7 @@ Template("treino.csv",variable=>
             .remove()
       ,
              getAudio("contexto.treino",variable.ContextoTreino)
-             .wait()
+             .wait("first")
              ,
             newAudio("frase.treino", variable.SentenceTreino)
              .play()
@@ -146,6 +146,9 @@ Template("treino.csv",variable=>
             .remove()
         
     ,
+             getAudio("frase.treino",variable.SentenceTreino)
+             .wait("first")
+             ,
         newImage("escala.png")
         .print()
         .center()
@@ -230,6 +233,9 @@ Template("tabela.csv", variable=>
 getImage("altofalante.png")
             .remove()
             ,
+             getAudio("contexto.exp",variable.AudioContext)
+             .wait("first")
+             ,
         newAudio("frase.experimento", variable.AudioSentence)
              .play()
         ,
@@ -250,7 +256,9 @@ getImage("altofalante.png")
             getImage("altofalante2.png")
             .remove()
         ,
-        
+        getAudio("contexto.exp",variable.AudioContext)
+             .wait("first")
+             ,
         newImage("escala.png")
         .print()
         .center()
