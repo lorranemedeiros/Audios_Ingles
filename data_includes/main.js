@@ -10,7 +10,7 @@ newTrial("inicial",
     ,
     newText("<p>Welcome!</p>")
     ,
-    newText("<p>In this experiment you’ll hear some sentences and then you’ll judge how good/acceptable sound those sentences using a 5-points scale.</p>")
+    newText("<p>In this experiment you’ll hear some sentences and then you’ll judge how good/acceptable sound those sentences using a 5-point scale.</p>")
     ,
     newText("<p>Please, fill in your FULL NAME in the box below:</p>")
     ,
@@ -93,7 +93,7 @@ newTrial("instr.treino",
     ,
     newText("<p>If possible, use headphones to perform the experiment.</p>")
     ,
-    newText("<p>Press “START” to start the practice.</p>")
+    newText("<p>Press “START” to go to the practice.</p>")
     ,
     //Cria um novo bot�o nomeado "Iniciar" e envia para o arquivo "results" a informa��o de quando ele � pressionado
     newButton("START")
@@ -122,7 +122,10 @@ Template("treino.csv",variable=>
     ,
           getImage("altofalante.png")
             .remove()
-            ,
+      ,
+             getAudio("contexto.treino",variable.ContextoTreino)
+             .wait()
+             ,
             newAudio("frase.treino", variable.SentenceTreino)
              .play()
         ,
@@ -195,7 +198,7 @@ newTrial("instr.exp",
     ,
     newText("<p>Now that you've practiced, let's start the experiment!</p>")
     ,
-    newText("<p>The task will take around 15 minutes, make sure you are in a quiet place so that there are no interruptions.</p>")
+    newText("<p>The task will take around 15 minutes. Make sure you are in a quiet place so that there are no interruptions.</p>")
     ,
     newText("<p>Click START when you are ready to start the experiment.</p>")
     ,
