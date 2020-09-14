@@ -82,7 +82,7 @@ newTrial("instr.treino",
     ,
     newText("<p>Step 1: You’ll listen to a sentence. This is the context sentence. As soon as the audio ends, click on the button NEXT.</p>")
     ,
-    newText("<p>Step 2: You’ll listen to a second sentence. This sentence is related to the context sentence (previous audio). After listening to this sentence, click on the button NEXT to judge this sentence according to a 5-points scale. PAY ATTENTION!! You have to judge the second audio, not the first one.</p>")
+    newText("<p>Step 2: You’ll listen to a second sentence. This sentence is related to the context sentence (previous audio). After listening to this sentence, click on the button NEXT to judge this sentence according to a 5-point scale. PAY ATTENTION!! You have to judge the second audio, not the first one.</p>")
     ,
     newText("<p>Step 3: You’ll see a five-point scale and now you’ll choose the best option according to what  you think about the sentence that you just heard:</p>")
     ,
@@ -316,7 +316,7 @@ newTrial("final",
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p> You'll will receive your certificate of participation by e-mail </p>")
+    newText("<p> You'll will receive your certificate of participation by e-mail. </p>")
         .css("font-size","1.2em")
         .print()
         .wait()
