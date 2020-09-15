@@ -77,23 +77,33 @@ newTrial("instr.treino",
         .print()
     ,
     newText("<p>Let’s practice a little bit before you start the test!</p>")
+         .center()
     ,
     newText("<p>Instructions:</p>")
+         .center()
     ,
     newText("<p>Step 1: You’ll listen to a sentence. This is the context sentence. As soon as the audio ends, click on the button NEXT.</p>")
+         .center()
     ,
-    newText("<p>Step 2: You’ll listen to a second sentence. This sentence is related to the context sentence (previous audio). After listening to this sentence, click on the button NEXT to judge this sentence according to a 5-point scale. PAY ATTENTION!! You have to judge the second audio, not the first one.</p>")
-    ,
+    newText("<p>Step 2: You’ll listen to a second sentence. This sentence is related to the context sentence (previous audio). \nAfter listening to this sentence, click on the button NEXT to judge this sentence according to a 5-point scale. PAY ATTENTION!! You have to judge the second audio, not the first one.</p>")
+    .center()
+         ,
+         
     newText("<p>Step 3: You’ll see a five-point scale and now you’ll choose the best option according to what  you think about the sentence that you just heard:</p>")
+         .center()
     ,
     newImage("escala.instructions.png")
     .print()
+    .center()
     ,
     newText("<p>So, you’ll click on the best option for you! (If you are using a laptop or a desktop, you can press the buttons 1 to 5 to choose the best option)</p>")
+         .center()
     ,
     newText("<p>If possible, wear headphones to perform the experiment.</p>")
+         .center()
     ,
     newText("<p>Press “START” to go to the practice.</p>")
+         .center()
     ,
     //Cria um novo bot�o nomeado "Iniciar" e envia para o arquivo "results" a informa��o de quando ele � pressionado
     newButton("START")
