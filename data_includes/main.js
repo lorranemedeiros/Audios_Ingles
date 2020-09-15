@@ -81,17 +81,21 @@ newTrial("instr.treino",
     ,
     newText("<p>Instructions:</p>")
          .center()
+         .bold()
     ,
     newText("<p>Step 1: You’ll listen to a sentence. This is the context sentence. As soon as the audio ends, click on the button NEXT.</p>")
-         .center()
+         .left()
     ,
-    newText("<p>Step 2: You’ll listen to a second sentence. This sentence is related to the context sentence (previous audio). \nAfter listening to this sentence, click on the button NEXT to judge this sentence according to a 5-point scale. PAY ATTENTION!! You have to judge the second audio, not the first one.</p>")
-    .center()
+    newText("<p>Step 2: You’ll listen to a second sentence. This sentence is related to the context sentence (previous audio). After listening to this sentence,<br> click on the button NEXT to judge this sentence according to a 5-point scale.</p>")
+    .left()
+         ,
+         newText("PAY ATTENTION!! You have to judge the second audio, not the first one.</p>")
+         .center()
+         .bold()
          ,
          
     newText("<p>Step 3: You’ll see a five-point scale and now you’ll choose the best option according to what  you think about the sentence that you just heard:</p>")
-         .center()
-    ,
+         ,
     newImage("escala.instructions.png")
     .print()
     .center()
@@ -100,10 +104,10 @@ newTrial("instr.treino",
          .center()
     ,
     newText("<p>If possible, wear headphones to perform the experiment.</p>")
-         .center()
+         .left()
     ,
     newText("<p>Press “START” to go to the practice.</p>")
-         .center()
+         .left()
     ,
     //Cria um novo bot�o nomeado "Iniciar" e envia para o arquivo "results" a informa��o de quando ele � pressionado
     newButton("START")
