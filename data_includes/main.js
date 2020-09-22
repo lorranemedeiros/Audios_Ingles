@@ -1,16 +1,31 @@
 PennController.ResetPrefix(null);
 PennController.DebugOff();
 //Sequência de telas do experimento
-Sequence ("inicial", "instr.treino", ("treino"), "instr.exp" , randomize("experimento"), SendResults(), "final");
+Sequence ("consent","inicial", "instr.treino", ("treino"), "instr.exp" , randomize("experimento"), SendResults(), "final");
+newTrial("consent",
+ defaultText
+        .css("font-size","1.2em")
+        .print()
+        ,
+     newText("<p>You have been invited to take part in a research study about how people produce sentences. The study is being conducted by the Language Processing<br> and Language Development Lab at the University of Pennsylvania.</p><p>You are being asked to complete this experiment because <b>you are an adult (18 years or older) and you are a native speaker of English (you learned<br> English from birth and are a fluent speaker of English)</b>.</p><p>Any information that you provide will be anonymized and kept confidential. You may withdraw from this study at any time without penalty.<br> However, make sure you have a reliable internet connection and are able to complete the study in one sitting as too many missed trials can affect whether you get credit.</p><p>If you have questions about this research, or if you would like to receive a report of this research when it is completed, please contact the researcher Victor Gomes at johntrueswell@gmail.com.</p><p><b>This study takes approximately 15 minutes</b> and you will receive the research credits listed on SONA for completion.</p><p>By clicking 'I agree', you agree that you are at least 18 years of age, that you are a native speaker of English, and that you understand these instructions and conditions of participation.</p>")
+    .print()
+    .left()
+    ,
+    newButton("I Agree")
+        .css("font-size","1.2em")
+        .print()
+        .center()
+        .wait()
+        .log()
+        
+        )
+        ;
 newTrial("inicial",
-//Define que todo o texto ser� impresso na tela e que o tamanho da fonte ser� "1.2em"
+//Define que todo o texto ser impresso na tela e que o tamanho da fonte ser "1.2em"
     defaultText
         .css("font-size","1.2em")
         .print()
-    ,
-     newText("consent", "<p>You have been invited to take part in a research study about how people produce sentences. The study is being conducted by the Language Processing and Language Development Lab at the University of Pennsylvania.</p><p>You are being asked to complete this experiment because <b>you are an adult (18 years or older) and you are a native speaker of English (you learned English from birth and are a fluent speaker of English)</b>.</p><p>Any information that you provide will be anonymized and kept confidential. You may withdraw from this study at any time without penalty. However, make sure you have a reliable internet connection and are able to complete the study in one sitting as too many missed trials can affect whether you get credit.</p><p>If you have questions about this research, or if you would like to receive a report of this research when it is completed, please contact the researcher Victor Gomes at vgomes@upenn.edu.</p><p><b>This study takes approximately 15 minutes</b> and you will receive the research credits listed on SONA for completion.</p><p>By clicking 'I agree', you agree that you are at least 18 years of age, that you are a native speaker of English, and that you understand these instructions and conditions of participation.</p>")
-    .print()
-    ,
+        ,
     newText("<p>Welcome!</p>")
     ,
     newText("<p>In this experiment you’ll hear some sentences and then you’ll judge how good/acceptable sound those sentences using a 5-point scale.</p>")
@@ -42,14 +57,6 @@ newTrial("inicial",
         .wait()
     ,
 //Cria uma nova vari�vel chamada "ID" que recebe o conte�do da caixa de texto "Nome"
-    newVar("ID")
-        .global()
-        .set( getTextInput("Nome") )
-    ,
-    newVar("EMAIL")
-        .global()
-        .set( getTextInput("Email") )
-    ,
     newVar("AGE")
         .global()
         .set( getTextInput("Idade") )
@@ -57,8 +64,6 @@ newTrial("inicial",
 )
 
 //Envia para o arquivo "results" o conte�do da vari�vel "ID"
-.log( "ID" , getVar("ID") )
-.log( "EMAIL" , getVar("EMAIL") )
 .log( "AGE" , getVar("AGE") )
  
 //Nova tela - Tela de instru��es do treino
