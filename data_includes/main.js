@@ -320,8 +320,7 @@ newTrial("final",
     newText("<p> The experiment was concluded! Thanks for participating!</p>")
         .css("font-size","1.2em")
         .print()
-    ,
-     )
+    )
 //Ajeita a barra de pogresso para que ela fique completa
 .setOption("countsForProgressBar",false);
 //Fim do Script
