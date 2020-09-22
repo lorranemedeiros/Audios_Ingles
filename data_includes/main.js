@@ -15,9 +15,9 @@ newTrial("consent",
         .css("font-size","1.2em")
         .print()
         .center()
-        .wait()
         .log()
-        
+        .wait()
+                
         )
         ;
 newTrial("inicial",
