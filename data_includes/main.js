@@ -8,23 +8,14 @@ newTrial("inicial",
         .css("font-size","1.2em")
         .print()
     ,
+     newText("consent", "<p>You have been invited to take part in a research study about how people produce sentences. The study is being conducted by the Language Processing and Language Development Lab at the University of Pennsylvania.</p><p>You are being asked to complete this experiment because <b>you are an adult (18 years or older) and you are a native speaker of English (you learned English from birth and are a fluent speaker of English)</b>.</p><p>Any information that you provide will be anonymized and kept confidential. You may withdraw from this study at any time without penalty. However, make sure you have a reliable internet connection and are able to complete the study in one sitting as too many missed trials can affect whether you get credit.</p><p>If you have questions about this research, or if you would like to receive a report of this research when it is completed, please contact the researcher Victor Gomes at vgomes@upenn.edu.</p><p><b>This study takes approximately 15 minutes</b> and you will receive the research credits listed on SONA for completion.</p><p>By clicking 'I agree', you agree that you are at least 18 years of age, that you are a native speaker of English, and that you understand these instructions and conditions of participation.</p>")
+    .print()
+    ,
     newText("<p>Welcome!</p>")
     ,
     newText("<p>In this experiment you’ll hear some sentences and then you’ll judge how good/acceptable sound those sentences using a 5-point scale.</p>")
     ,
-    newText("<p>Please, fill in your FULL NAME in the box below:</p>")
-    ,
-//Cria uma caixa de texto nomedada "Nome" para receber o nome do participante
-    newTextInput("Nome")
-        .css("font-size","1.2em")
-        .print()
-    ,
-    newText("<p>Please, fill in your E-MAIL address in the box below:</p>")
-    ,
-    newTextInput("Email")
-        .css("font-size","1.2em")
-        .print()
-    ,
+    
     newText("<p>Fill in your AGE in the box below:</p>")
         .css("font-size","1.2em")
         .print()
@@ -330,11 +321,7 @@ newTrial("final",
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p> You'll will receive your certificate of participation by e-mail. </p>")
-        .css("font-size","1.2em")
-        .print()
-        .wait()
- )
+     )
 //Ajeita a barra de pogresso para que ela fique completa
 .setOption("countsForProgressBar",false);
 //Fim do Script
