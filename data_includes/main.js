@@ -116,8 +116,7 @@ Template("treino.csv",variable=>
     newTrial("treino",
         newAudio("contexto.treino",variable.ContextoTreino)
              .play()
-             .wait()
-        ,
+                     ,
         newImage("altofalante.png")
             .size( 90 , 90 )
             .print()
@@ -140,8 +139,7 @@ Template("treino.csv",variable=>
             ,
             newAudio("frase.treino", variable.SentenceTreino)
              .play()
-             .wait()
-        ,
+                     ,
         newImage("altofalante2.png")
             .size( 90 , 90 )
             .print()
