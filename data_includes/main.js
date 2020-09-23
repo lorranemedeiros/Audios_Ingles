@@ -318,12 +318,15 @@ newCanvas( 1400 , 700 )
     .log("Group", variable.Group) 
     .log("Type", variable.Type)
     )
+    ;
     
 //Nova Tela - Tela final    
 newTrial("final",
-    newText("<p> The experiment was concluded! Thanks for participating!</p>")
+    newText("<p>The experiment was concluded! Thanks for participating!</p>")
         .css("font-size","1.2em")
         .print()
+        .wait()
+    
     )
 //Ajeita a barra de pogresso para que ela fique completa
 .setOption("countsForProgressBar",false);
