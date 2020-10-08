@@ -201,6 +201,7 @@ newCanvas( 1400 , 700 )
             .log()
             .wait()
 )
+.log( "ID" , GetURLParameter( "id" ) )
 
     .log("Condition", variable.Condition)
     .log("Group", variable.Group) 
@@ -312,11 +313,14 @@ newCanvas( 1400 , 700 )
             .log()
             .wait()
 )
+.log( "ID" , GetURLParameter( "id" ) )
+
 
     .log("Item", variable.Item)
     .log("Condition", variable.Condition)
     .log("Group", variable.Group) 
     .log("Type", variable.Type)
+    
     )
     ;
     
